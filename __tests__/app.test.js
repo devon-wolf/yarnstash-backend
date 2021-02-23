@@ -186,5 +186,31 @@ describe('app routes', () => {
       expect(noYarnHere.body).toEqual('');
     });
 
+    test('updates a yarn by its id', async() => {
+      const updatedYarn = {
+        'name': 'Cakes',
+        'brand': 'Caron',
+        'material': 'blend (acrylic-wool)',
+        'color': 'blue-multi',
+        'yarn_weight': 'worsted',
+        'quantity': 2,
+        'partials': true
+      };
+
+      const expectation = {
+        ...updatedYarn,
+        id: 1,
+        owner_id: 1
+      };
+
+      const data = await fakeRequest(app)
+        .put('/yarns/1')
+        .send(updatedYarn)
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(expectation);
+    });
+
   });
 });
