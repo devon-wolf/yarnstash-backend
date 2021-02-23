@@ -110,7 +110,7 @@ describe('app routes', () => {
       expect(data.body).toEqual(expectation);
     });
 
-    test('returns yarns', async() => {
+    test('returns one yarn by id', async() => {
 
       const expectation = {
         'id': 5,
@@ -126,6 +126,32 @@ describe('app routes', () => {
 
       const data = await fakeRequest(app)
         .get('/yarns/5')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(expectation);
+    });
+
+    test('adds a new yarn', async() => {
+      const newYarn = {
+        'name': 'Dazzle',
+        'brand': 'Caron',
+        'material': 'blend (acrylic-nylon)',
+        'color': 'yellow',
+        'yarn_weight': 'sport',
+        'quantity': 1,
+        'partials': false
+      };
+
+      const expectation = {
+        ...newYarn,
+        id: 7,
+        owner_id: 1
+      };
+
+      const data = await fakeRequest(app)
+        .post('/yarns')
+        .send(newYarn)
         .expect('Content-Type', /json/)
         .expect(200);
 
