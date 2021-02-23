@@ -42,9 +42,9 @@ describe('app routes', () => {
           'brand': 'Caron',
           'material': 'blend (acrylic-wool)',
           'color': 'multi',
-          'yarn_weight': 'worsted',
           'quantity': 2,
           'partials': true,
+          'weight_id': 1,
           'owner_id': 1
         },
         {
@@ -53,9 +53,9 @@ describe('app routes', () => {
           'brand': 'Lily',
           'material': 'cotton',
           'color': 'purple',
-          'yarn_weight': 'worsted',
           'quantity': 3,
           'partials': true,
+          'weight_id': 1,
           'owner_id': 1
         },
         {
@@ -64,9 +64,9 @@ describe('app routes', () => {
           'brand': 'Patons',
           'material': 'cotton (mercerized)',
           'color': 'green',
-          'yarn_weight': 'sport',
           'quantity': 3,
           'partials': false,
+          'weight_id': 2,
           'owner_id': 1
         },
         {
@@ -75,9 +75,9 @@ describe('app routes', () => {
           'brand': 'Patons',
           'material': 'blend (wool-nylon)',
           'color': 'pink-multi',
-          'yarn_weight': 'super-fine',
           'quantity': 2,
           'partials': true,
+          'weight_id': 4,
           'owner_id': 1
         },
         {
@@ -86,9 +86,9 @@ describe('app routes', () => {
           'brand': 'Lion',
           'material': 'blend (acrylic-wool)',
           'color': 'brown',
-          'yarn_weight': 'worsted',
           'quantity': 1,
           'partials': false,
+          'weight_id': 1,
           'owner_id': 1
         },
         {
@@ -97,9 +97,9 @@ describe('app routes', () => {
           'brand': 'Patons',
           'material': 'wool',
           'color': 'gray',
-          'yarn_weight': 'worsted',
           'quantity': 4,
           'partials': true,
+          'weight_id': 1,
           'owner_id': 1
         }
       ];
@@ -120,9 +120,9 @@ describe('app routes', () => {
         'brand': 'Lion',
         'material': 'blend (acrylic-wool)',
         'color': 'brown',
-        'yarn_weight': 'worsted',
         'quantity': 1,
         'partials': false,
+        'weight_id': 1,
         'owner_id': 1
       };
 
@@ -140,9 +140,9 @@ describe('app routes', () => {
         'brand': 'Caron',
         'material': 'blend (acrylic-nylon)',
         'color': 'yellow',
-        'yarn_weight': 'sport',
         'quantity': 1,
-        'partials': false
+        'partials': false,
+        'weight_id': 2
       };
 
       const expectation = {
@@ -167,9 +167,9 @@ describe('app routes', () => {
         'brand': 'Lion',
         'material': 'blend (acrylic-wool)',
         'color': 'brown',
-        'yarn_weight': 'worsted',
         'quantity': 1,
         'partials': false,
+        'weight_id': 1,
         'owner_id': 1
       };
 
@@ -194,9 +194,9 @@ describe('app routes', () => {
         'brand': 'Caron',
         'material': 'blend (acrylic-wool)',
         'color': 'blue-multi',
-        'yarn_weight': 'worsted',
         'quantity': 2,
-        'partials': true
+        'partials': true,
+        'weight_id': 1
       };
 
       const expectation = {
