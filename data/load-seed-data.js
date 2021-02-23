@@ -2,6 +2,7 @@ const client = require('../lib/client');
 // import our seed data:
 const yarns = require('./yarns.js');
 const usersData = require('./users.js');
+const weightsData = require('./yarn_weights.js');
 const { getEmoji } = require('../lib/emoji.js');
 
 run();
@@ -21,11 +22,23 @@ async function run() {
         [user.email, user.hash]);
       })
     );
+
+    const yarn_weights = await Promise.all(
+      weightsData.map(yarn => {
+        return client.query(`
+                      INSERT INTO yarn_weights (weight)
+                      VALUES ($1)
+                      RETURNING *;
+                  `,
+        [yarn.weight]);
+      })
+    );
       
     const user = users[0].rows[0];
 
     await Promise.all(
       yarns.map(yarn => {
+        const weightID = getWeightID(yarn, yarn_weights);
         return client.query(`
                     INSERT INTO yarns (name, brand, material, color, yarn_weight, quantity, partials, owner_id)
                     VALUES ($1, $2, $3, $4, $5, $6, $7, $8);
