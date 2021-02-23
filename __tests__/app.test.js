@@ -157,5 +157,34 @@ describe('app routes', () => {
 
       expect(data.body).toEqual(expectation);
     });
+
+    test('deletes a yarn by its id', async() => {
+      const expectation = {
+        'id': 5,
+        'name': 'Wool-Ease',
+        'brand': 'Lion',
+        'material': 'blend (acrylic-wool)',
+        'color': 'brown',
+        'yarn_weight': 'worsted',
+        'quantity': 1,
+        'partials': false,
+        'owner_id': 1
+      };
+
+      const data = await fakeRequest(app)
+        .delete('/yarns/5')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(expectation);
+
+      const noYarnHere = await fakeRequest(app)
+        .get('/yarns/5')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(noYarnHere.body).toEqual('');
+    });
+
   });
 });
