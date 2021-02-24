@@ -42,6 +42,7 @@ describe('app routes', () => {
           'color': 'multi',
           'quantity': 2,
           'partials': true,
+          'weight': 'worsted',
           'weight_id': 1,
           'owner_id': 1
         },
@@ -53,6 +54,7 @@ describe('app routes', () => {
           'color': 'purple',
           'quantity': 3,
           'partials': true,
+          'weight': 'worsted',
           'weight_id': 1,
           'owner_id': 1
         },
@@ -64,6 +66,7 @@ describe('app routes', () => {
           'color': 'green',
           'quantity': 3,
           'partials': false,
+          'weight': 'sport',
           'weight_id': 2,
           'owner_id': 1
         },
@@ -75,6 +78,7 @@ describe('app routes', () => {
           'color': 'pink-multi',
           'quantity': 2,
           'partials': true,
+          'weight': 'super-fine',
           'weight_id': 4,
           'owner_id': 1
         },
@@ -86,6 +90,7 @@ describe('app routes', () => {
           'color': 'brown',
           'quantity': 1,
           'partials': false,
+          'weight': 'worsted',
           'weight_id': 1,
           'owner_id': 1
         },
@@ -97,6 +102,7 @@ describe('app routes', () => {
           'color': 'gray',
           'quantity': 4,
           'partials': true,
+          'weight': 'worsted',
           'weight_id': 1,
           'owner_id': 1
         }
@@ -107,6 +113,8 @@ describe('app routes', () => {
         .expect('Content-Type', /json/)
         .expect(200);
 
+
+      console.log(data.body);
       expect(data.body).toEqual(expectation);
     });
 
