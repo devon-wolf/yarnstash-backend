@@ -192,6 +192,13 @@ describe('app routes', () => {
         .expect(200);
 
       expect(data.body).toEqual(expectation);
+
+      const fetchData = await fakeRequest(app)
+        .get('/yarns/7')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect (fetchData.body).toEqual({ ...expectation, weight: 'sport' });
     });
 
     test('deletes a yarn by its id', async() => {
@@ -246,9 +253,13 @@ describe('app routes', () => {
         .expect(200);
 
       expect(data.body).toEqual(expectation);
+
+      const fetchData = await fakeRequest(app)
+        .get('/yarns/1')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect (fetchData.body).toEqual({ ...expectation, weight: 'worsted' });
     });
-
-    
-
   });
 });
