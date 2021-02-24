@@ -113,8 +113,6 @@ describe('app routes', () => {
         .expect('Content-Type', /json/)
         .expect(200);
 
-
-      console.log(data.body);
       expect(data.body).toEqual(expectation);
     });
 
@@ -150,22 +148,23 @@ describe('app routes', () => {
     test('returns one yarn by id', async() => {
 
       const expectation = {
-        'id': 5,
-        'name': 'Wool-Ease',
-        'brand': 'Lion',
+        'id': 1,
+        'name': 'Cakes',
+        'brand': 'Caron',
         'material': 'blend (acrylic-wool)',
-        'color': 'brown',
-        'quantity': 1,
-        'partials': false,
+        'color': 'multi',
+        'quantity': 2,
+        'partials': true,
+        'weight': 'worsted',
         'weight_id': 1,
         'owner_id': 1
       };
 
       const data = await fakeRequest(app)
-        .get('/yarns/5')
+        .get('/yarns/1')
         .expect('Content-Type', /json/)
         .expect(200);
-
+        
       expect(data.body).toEqual(expectation);
     });
 
@@ -179,7 +178,7 @@ describe('app routes', () => {
         'partials': false,
         'weight_id': 2
       };
-
+      
       const expectation = {
         ...newYarn,
         id: 7,
