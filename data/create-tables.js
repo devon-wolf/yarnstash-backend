@@ -17,10 +17,15 @@ async function run() {
                     email VARCHAR(256) NOT NULL,
                     hash VARCHAR(512) NOT NULL
                 );           
-                CREATE TABLE animals (
+                CREATE TABLE yarns (
                     id SERIAL PRIMARY KEY NOT NULL,
                     name VARCHAR(512) NOT NULL,
-                    cool_factor INTEGER NOT NULL,
+                    brand VARCHAR(512) NOT NULL,
+                    material VARCHAR(512) NOT NULL,
+                    color VARCHAR(512) NOT NULL,
+                    yarn_weight VARCHAR(512) NOT NULL,
+                    quantity INTEGER NOT NULL,
+                    partials BOOLEAN NOT NULL,
                     owner_id INTEGER NOT NULL REFERENCES users(id)
             );
         `);
