@@ -1,2 +1,2 @@
 # yarnstash-backend
-server and database for [yarnstash](yarnstash.netlify.app/)
+server and database for [yarnstash](https://github.com/devon-wolf/yarnstash)
